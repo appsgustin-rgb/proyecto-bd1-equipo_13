@@ -1,6 +1,5 @@
 **Sistema Gestor de Ventas - Distribuidora de Agua y Soda Envasada**
 
-
 *Descripción*
 
 El rubro elegido corresponde al de las distribuidoras de agua y soda envasada, las cuales desempeñan tareas de producción, comercialización y distribución de las mismas en el mercado, contando para ello con maquinaria (gasificadoras, purificadoras, etc), transporte (camiones, camionetas, etc), personal (operarios, conductores, etc) e instalaciones necesarios, realizando también entregas particulares mediante reparto a todo tipo de clientes.
@@ -31,12 +30,16 @@ El rubro elegido corresponde al de las distribuidoras de agua y soda envasada, l
 11. **Consultas e informes.** Permitir consultas como ventas por cliente, productos más vendidos, entregas pendientes, estado de stock, ventas por método de pago, etc.
 
 ## Requerimientos No Funcionales
-
+### Fiabilidad
 1. **Integridad de datos.** El sistema debe garantizar la integridad referencial mediante claves primarias y foráneas en todas las tablas.
 2. **Consistencia transaccional.** Las operaciones que involucren venta y descuento de stock deben ejecutarse como transacciones atómicas para evitar inconsistencias.
-3. **Normalización.** La base de datos debe estar normalizada (al menos hasta 3FN) para evitar redundancia de información.
-4. **Rendimiento.** Las consultas frecuentes (búsqueda de clientes, consulta de stock, listado de entregas pendientes) deben responder en tiempos razonables, apoyándose en índices donde corresponda.
-5. **Escalabilidad.** El modelo debe soportar el crecimiento en cantidad de clientes, productos, ventas y entregas sin requerir rediseño estructural.
-6. **Seguridad.** El acceso al sistema debe estar restringido a usuarios autorizados, protegiendo los datos de clientes y transacciones.
-7. **Disponibilidad.** El sistema debe estar operativo durante el horario comercial para no interrumpir la toma de pedidos ni la asignación de entregas.
-8. **Usabilidad.** La interfaz (si la hubiera) debe ser lo suficientemente intuitiva para que los operadores registren ventas y entregas de forma ágil.
+3. **Disponibilidad.** El sistema debe estar operativo durante el horario comercial para no interrumpir la toma de pedidos ni la asignación de entregas.
+### Estandares
+1. **Normalización.** La base de datos debe estar normalizada (al menos hasta 3FN) para evitar redundancia de información.
+### Eficiencia
+1. **Rendimiento.** Las consultas frecuentes (búsqueda de clientes, consulta de stock, listado de entregas pendientes) deben responder en tiempos razonables, apoyándose en índices donde corresponda.
+2. **Escalabilidad.** El modelo debe soportar el crecimiento en cantidad de clientes, productos, ventas y entregas sin requerir rediseño estructural.
+### Seguridad
+1. **Seguridad.** El acceso al sistema debe estar restringido a usuarios autorizados, protegiendo los datos de clientes y transacciones.
+### Usabilidad
+1. **Usabilidad.** La interfaz (si la hubiera) debe ser lo suficientemente intuitiva para que los operadores registren ventas y entregas de forma ágil.
