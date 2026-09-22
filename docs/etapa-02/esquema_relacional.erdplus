@@ -49,13 +49,6 @@
               "type": "VARCHAR(n)",
               "position": 0,
               "size": "50"
-            },
-            {
-              "id": "0d09c5df-71d4-40b1-b47f-a90832a01445",
-              "name": "telefono",
-              "type": "VARCHAR(n)",
-              "position": 0,
-              "size": "20"
             }
           ],
           "isSelected": false
@@ -295,7 +288,7 @@
               "position": 0,
               "isPrimaryKey": true,
               "isOptional": false,
-              "isUnique": true
+              "isUnique": false
             },
             {
               "id": "a00d33fe-4367-4073-9e3c-a07fde7d0f2b",
@@ -385,26 +378,29 @@
             {
               "id": "e3d7d7f2-0b71-4449-9f3b-aee94d0a9252",
               "name": "nombre",
-              "type": "INT",
+              "type": "VARCHAR(n)",
               "position": 0,
               "isPrimaryKey": false,
-              "isUnique": false
+              "isUnique": false,
+              "size": "35"
             },
             {
               "id": "287b5bc0-d2ae-4a32-bd50-8ccf30a2641d",
               "name": "apellido",
-              "type": "INT",
+              "type": "VARCHAR(n)",
               "position": 0,
               "isPrimaryKey": false,
-              "isUnique": false
+              "isUnique": false,
+              "size": "35"
             },
             {
               "id": "28460a6c-e67d-448d-a811-55e66745c9cd",
               "name": "telefono",
-              "type": "INT",
+              "type": "VARCHAR(n)",
               "position": 0,
               "isPrimaryKey": false,
-              "isUnique": false
+              "isUnique": false,
+              "size": "20"
             }
           ],
           "isSelected": false
@@ -454,7 +450,7 @@
               "name": "direccion_entrega",
               "type": "VARCHAR(n)",
               "position": 0,
-              "size": "35"
+              "size": "50"
             },
             {
               "id": "fk_76faf06f-fc17-4ea5-941a-b8db812b278b",
@@ -496,6 +492,180 @@
         "measured": {
           "width": 240,
           "height": 177
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "bd610dce-c5e0-4f0b-9320-4712999a07f7",
+        "type": "Table",
+        "position": {
+          "x": 50,
+          "y": 700
+        },
+        "data": {
+          "label": "Telefono_Cliente",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "e20c1b90-ab6e-4fa4-b454-c3027ce8ece8",
+              "name": "telefono",
+              "type": "VARCHAR(n)",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": true,
+              "size": "20"
+            },
+            {
+              "id": "fk_9d5f58ac-0027-4e03-a219-6004b55c870a",
+              "name": "fk_Cliente",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "154df073-e402-4a2f-8333-b837ee4f0d8a",
+                "sourceTableId": "5e313800-1800-43bc-90d2-9b47d5f78570",
+                "columns": [
+                  {
+                    "id": "fk_849eb6f8-97d0-4943-b9f6-1b61966a2500",
+                    "name": "id_cliente",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            }
+          ],
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 105
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "0f0a3c37-7fe5-4edb-9208-6707016e2b41",
+        "type": "Table",
+        "position": {
+          "x": 50,
+          "y": 950
+        },
+        "data": {
+          "label": "Proveedor",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "7339885a-fa21-43a0-97ef-41c4d52805dd",
+              "name": "id_proveedor",
+              "type": "INT",
+              "position": 0,
+              "isPrimaryKey": true,
+              "isOptional": false,
+              "isUnique": true
+            },
+            {
+              "id": "76134d51-1035-4576-a2d6-1554f01f3e55",
+              "name": "razon_social",
+              "type": "VARCHAR(n)",
+              "position": 0,
+              "size": "50"
+            },
+            {
+              "id": "9af7e8bc-d598-4f25-bf68-87a3c87ffde3",
+              "name": "cuit",
+              "type": "VARCHAR(n)",
+              "position": 0,
+              "size": "13"
+            },
+            {
+              "id": "e6d6e1fe-6f7b-468b-bd3b-5c69718501b7",
+              "name": "telefono",
+              "type": "VARCHAR(n)",
+              "position": 0,
+              "size": "20"
+            },
+            {
+              "id": "29881324-4812-4b8a-b436-f98b5912ec10",
+              "name": "email",
+              "type": "VARCHAR(n)",
+              "position": 0,
+              "size": "50"
+            },
+            {
+              "id": "2016ee07-802b-4eaf-89d9-23aecb2aa50d",
+              "name": "direccion",
+              "type": "VARCHAR(n)",
+              "position": 0,
+              "size": "50"
+            }
+          ],
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 176
+        },
+        "selected": false,
+        "dragging": false
+      },
+      {
+        "id": "e353c90d-2981-404f-a77b-d38c5ec07c5d",
+        "type": "Table",
+        "position": {
+          "x": 450,
+          "y": 950
+        },
+        "data": {
+          "label": "Producto_Proveedor",
+          "isConnectable": false,
+          "columns": [
+            {
+              "id": "fk_83cb2b10-c405-4f47-b816-254b6653245c",
+              "name": "fk_Producto",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "6a5aea30-037d-457c-9f58-102649a6340b",
+                "sourceTableId": "5e0612b6-fa06-403f-8516-2d70a6f8efa1",
+                "columns": [
+                  {
+                    "id": "fk_4bab181d-e99f-44ba-ad49-13d88cd0981d",
+                    "name": "id_producto",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            },
+            {
+              "id": "fk_09cab35c-0c9d-4149-9f58-410fd806c335",
+              "name": "fk_Proveedor",
+              "type": "None",
+              "isForeignKey": true,
+              "foreignKeyProps": {
+                "foreignKeyGroupId": "937c82ce-024c-4af1-a142-62cc538b5a44",
+                "sourceTableId": "0f0a3c37-7fe5-4edb-9208-6707016e2b41",
+                "columns": [
+                  {
+                    "id": "fk_7339885a-fa21-43a0-97ef-41c4d52805dd",
+                    "name": "id_proveedor",
+                    "type": "INT"
+                  }
+                ]
+              },
+              "isPrimaryKey": true,
+              "isOptional": false
+            }
+          ],
+          "isSelected": false
+        },
+        "measured": {
+          "width": 240,
+          "height": 105
         },
         "selected": false,
         "dragging": false
@@ -662,6 +832,75 @@
             ]
           }
         }
+      },
+      {
+        "id": "5e313800-1800-43bc-90d2-9b47d5f78570->bd610dce-c5e0-4f0b-9320-4712999a07f7_154df073-e402-4a2f-8333-b837ee4f0d8a",
+        "type": "Relational",
+        "source": "5e313800-1800-43bc-90d2-9b47d5f78570",
+        "targetHandle": "foreign-key-handle-154df073-e402-4a2f-8333-b837ee4f0d8a",
+        "target": "bd610dce-c5e0-4f0b-9320-4712999a07f7",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "154df073-e402-4a2f-8333-b837ee4f0d8a",
+            "sourceTableId": "5e313800-1800-43bc-90d2-9b47d5f78570",
+            "columns": [
+              {
+                "id": "fk_849eb6f8-97d0-4943-b9f6-1b61966a2500",
+                "name": "id_cliente",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "5e0612b6-fa06-403f-8516-2d70a6f8efa1->e353c90d-2981-404f-a77b-d38c5ec07c5d_6a5aea30-037d-457c-9f58-102649a6340b",
+        "type": "Relational",
+        "source": "5e0612b6-fa06-403f-8516-2d70a6f8efa1",
+        "targetHandle": "foreign-key-handle-6a5aea30-037d-457c-9f58-102649a6340b",
+        "target": "e353c90d-2981-404f-a77b-d38c5ec07c5d",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "6a5aea30-037d-457c-9f58-102649a6340b",
+            "sourceTableId": "5e0612b6-fa06-403f-8516-2d70a6f8efa1",
+            "columns": [
+              {
+                "id": "fk_4bab181d-e99f-44ba-ad49-13d88cd0981d",
+                "name": "id_producto",
+                "type": "INT"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "0f0a3c37-7fe5-4edb-9208-6707016e2b41->e353c90d-2981-404f-a77b-d38c5ec07c5d_937c82ce-024c-4af1-a142-62cc538b5a44",
+        "type": "Relational",
+        "source": "0f0a3c37-7fe5-4edb-9208-6707016e2b41",
+        "targetHandle": "foreign-key-handle-937c82ce-024c-4af1-a142-62cc538b5a44",
+        "target": "e353c90d-2981-404f-a77b-d38c5ec07c5d",
+        "markerStart": {
+          "type": "arrow"
+        },
+        "data": {
+          "foreignKeyProps": {
+            "foreignKeyGroupId": "937c82ce-024c-4af1-a142-62cc538b5a44",
+            "sourceTableId": "0f0a3c37-7fe5-4edb-9208-6707016e2b41",
+            "columns": [
+              {
+                "id": "fk_7339885a-fa21-43a0-97ef-41c4d52805dd",
+                "name": "id_proveedor",
+                "type": "INT"
+              }
+            ]
+          }
+        }
       }
     ],
     "viewport": {
@@ -678,5 +917,5 @@
     "id": 384919
   },
   "id": 608150,
-  "updatedAtTimestamp": 1790089669
+  "updatedAtTimestamp": 1790100190021
 }
