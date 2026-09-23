@@ -32,4 +32,4 @@ En esta primera versión del sistema no se contempla:
 - La gestión de mantenimiento de vehículos.
 - La gestión de maquinaria utilizada en la producción.
 - La facturación electrónica ante organismos fiscales.
-- La administración de rutas de reparto mediante geolocalización
+- La administración de rutas de reparto mediante geolocalización.
