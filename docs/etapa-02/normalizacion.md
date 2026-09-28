@@ -4,7 +4,7 @@
 
 2. Atributos con valores repetitivos: - categoría en una relación Producto(id\_producto(PK), nombre\_producto, precio\_actual, stock, id\_categoria(FK)).
 
-\t\t\t\t      - metodo\_pago en una relacion Venta(id\_venta(PK), fecha\_venta, id\_cliente(FK), id\_metodo\_pago(FK));
+ - metodo\_pago en una relacion Venta(id\_venta(PK), fecha\_venta, id\_cliente(FK), id\_metodo\_pago(FK));
 
 
 
