@@ -9,8 +9,6 @@ El sistema permitirá:
 - Registrar, modificar, eliminar y consultar clientes.
 - Registrar y administrar productos.
 - Clasificar productos mediante categorías.
-- Registrar proveedores.
-- Asociar proveedores con los productos que suministran.
 - Registrar ventas realizadas a clientes.
 - Registrar los productos incluidos en cada venta.
 - Almacenar la cantidad vendida de cada producto.

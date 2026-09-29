@@ -51,8 +51,3 @@ Se contempla la posibilidad de que un cliente pueda poseer más de un número te
 
 Por este motivo, los teléfonos podrán administrarse separadamente de los datos principales del cliente.
 
----
-
-## 7. Proveedores y productos
-
-Debido a que un proveedor puede suministrar varios productos y un producto puede ser suministrado por diferentes proveedores, esta relación será considerada durante la etapa de modelado.

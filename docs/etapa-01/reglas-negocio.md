@@ -93,15 +93,7 @@ Un repartidor podrá realizar múltiples entregas.
 
 ---
 
-## RN11 - Proveedores
-
-Todo proveedor deberá estar registrado en el sistema.
-
-Un proveedor podrá suministrar múltiples productos y un producto podrá ser suministrado por uno o más proveedores.
-
----
-
-## RN12 - Integridad de datos
+## RN11 - Integridad de datos
 
 No deberá existir información relacionada con entidades inexistentes.
 
