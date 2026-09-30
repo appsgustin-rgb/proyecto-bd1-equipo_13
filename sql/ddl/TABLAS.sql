@@ -37,8 +37,8 @@ CREATE TABLE Producto
 (
   id_producto INT IDENTITY(1,1) NOT NULL,
   nombre_producto VARCHAR(50) NOT NULL,
-  precio_actual FLOAT NOT NULL,
-  stock INT NOT NULL,
+  precio_actual FLOAT NOT NULL CHECK (precio_actual > 0),
+  stock INT NOT NULL CHECK (stock >= 0),
   id_categoria INT NOT NULL,
   PRIMARY KEY (id_producto),
   FOREIGN KEY (id_categoria) REFERENCES Categoria(id_categoria),
@@ -48,7 +48,7 @@ CREATE TABLE Detalle_Venta
 (
   nro_linea INT NOT NULL,
   cantidad INT NOT NULL,
-  precio_historico FLOAT NOT NULL,
+  precio_historico FLOAT NOT NULL CHECK (precio_historico > 0),
   id_producto INT NOT NULL,
   id_venta INT NOT NULL,
   PRIMARY KEY (nro_linea, id_venta),
