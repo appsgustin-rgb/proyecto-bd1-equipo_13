@@ -1,36 +1,72 @@
 
 -- ============================================
--- 1. CLIENTES
+-- 1. CLIENTES  -   2. TELEFONOS DE CLIENTES
 -- ============================================
 
-INSERT INTO Cliente (id_cliente, nombre, apellido, direccion, email)
+DECLARE @id INT;                                                --Auxiliar para obtener el id_cliente generado automáticamente y ponerlo en la tabla Telefono_Cliente.
+
+INSERT INTO Cliente (nombre, apellido, direccion, email) 
+VALUES ('Juan', 'Perez', 'Av. 3 de abril 1250', 'juan.perez@gmail.com');
+SET @id = SCOPE_IDENTITY();                                     --Obtenemos el id_cliente generado automáticamente.
+INSERT INTO Telefono_Cliente (telefono, id_cliente) 
+VALUES 
+('3794123456', @id), 
+('3794234567', @id);
+
+INSERT INTO Cliente (nombre, apellido, direccion, email)
+VALUES ('Maria', 'Gomez', 'San Martin 845', 'maria.gomez@gmail.com');
+SET @id = SCOPE_IDENTITY();
+INSERT INTO Telefono_Cliente (telefono, id_cliente) 
+VALUES 
+('3794345678', @id);
+
+INSERT INTO Cliente (nombre, apellido, direccion, email)
 VALUES
-('Juan', 'Perez', 'Av. 3 de abril 1250', 'juan.perez@gmail.com'),
-('Maria', 'Gomez', 'San Martin 845', 'maria.gomez@gmail.com'),
 ('Carlos', 'Rodriguez', 'Junin 1320', 'carlos.rodriguez@gmail.com'),
-('Lucia', 'Fernandez', '25 de Mayo 560', 'lucia.fernandez@gmail.com'),
-('Matias', 'Benitez', 'Belgrano 920', 'matias.benitez@gmail.com'),
-('Sofia', 'Martinez', 'Moreno 1450', 'sofia.martinez@gmail.com'),
-('Diego', 'Gonzalez', 'Maipu 730', 'diego.gonzalez@gmail.com'),
+SET @id = SCOPE_IDENTITY();
+INSERT INTO Telefono_Cliente (telefono, id_cliente) 
+VALUES 
+('3794456789', @id);
+
+INSERT INTO Cliente (nombre, apellido, direccion, email)
+VALUES
+('Lucia', 'Fernandez', '25 de Mayo 560', 'lucia.fernandez@gmail.com');
+SET @id = SCOPE_IDENTITY();
+INSERT INTO Telefono_Cliente (telefono, id_cliente)
+VALUES 
+('3794567890', @id);
+
+INSERT INTO Cliente (nombre, apellido, direccion, email)
+VALUES
+('Matias', 'Benitez', 'Belgrano 920', 'matias.benitez@gmail.com');
+SET @id = SCOPE_IDENTITY();
+INSERT INTO Telefono_Cliente (telefono, id_cliente)
+VALUES 
+('3794678901', @id);
+
+INSERT INTO Cliente (nombre, apellido, direccion, email)
+VALUES
+('Sofia', 'Martinez', 'Moreno 1450', 'sofia.martinez@gmail.com');
+SET @id = SCOPE_IDENTITY();
+INSERT INTO Telefono_Cliente (telefono, id_cliente)
+VALUES 
+('3794789012', @id);
+
+INSERT INTO Cliente (nombre, apellido, direccion, email)
+VALUES
+('Diego', 'Gonzalez', 'Maipu 730', 'diego.gonzalez@gmail.com');
+SET @id = SCOPE_IDENTITY();
+INSERT INTO Telefono_Cliente (telefono, id_cliente)
+VALUES 
+('3794890123', @id);
+
+INSERT INTO Cliente (nombre, apellido, direccion, email)
+VALUES
 ('Camila', 'Lopez', 'Rivadavia 1105', 'camila.lopez@gmail.com');
-
-
--- ============================================
--- 2. TELEFONOS DE CLIENTES
--- ============================================
-
+SET @id = SCOPE_IDENTITY();
 INSERT INTO Telefono_Cliente (telefono, id_cliente)
 VALUES
-('3794123456', 1),
-('3794234567', 2),
-('3794345678', 3),
-('3794456789', 4),
-('3794567890', 5),
-('3794678901', 6),
-('3794789012', 7),
-('3794890123', 8),
-('3794987654', 1),
-('3794012345', 3);
+('3794012345', @id);
 
 
 -- ============================================
