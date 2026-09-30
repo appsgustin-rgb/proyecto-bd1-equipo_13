@@ -6,8 +6,8 @@
         "id": "5e313800-1800-43bc-90d2-9b47d5f78570",
         "type": "Table",
         "position": {
-          "x": 404,
-          "y": 140
+          "x": 642.0876569037656,
+          "y": 617.8519874476988
         },
         "data": {
           "label": "Cliente",
@@ -55,7 +55,7 @@
         },
         "measured": {
           "width": 240,
-          "height": 176
+          "height": 152
         },
         "selected": false,
         "dragging": false
@@ -64,8 +64,8 @@
         "id": "604853bc-cb18-4185-9102-bd43b6309cd3",
         "type": "Table",
         "position": {
-          "x": 930,
-          "y": 323
+          "x": 940.0600418410041,
+          "y": 307.9099372384937
         },
         "data": {
           "label": "Venta",
@@ -125,7 +125,7 @@
         },
         "measured": {
           "width": 240,
-          "height": 127
+          "height": 128
         },
         "selected": false,
         "dragging": false
@@ -134,8 +134,8 @@
         "id": "195a298c-bfaf-48d5-95aa-fac841443868",
         "type": "Table",
         "position": {
-          "x": 1298,
-          "y": 253
+          "x": 1249.3764644351465,
+          "y": 249.64665271966527
         },
         "data": {
           "label": "Metodo_Pago",
@@ -162,7 +162,7 @@
         },
         "measured": {
           "width": 240,
-          "height": 76
+          "height": 77
         },
         "selected": false,
         "dragging": false
@@ -171,8 +171,8 @@
         "id": "1e8905b9-4bc9-476a-ae10-98c8a39e6b0b",
         "type": "Table",
         "position": {
-          "x": 1605,
-          "y": 3
+          "x": 1574.8198744769877,
+          "y": -10.413389121338902
         },
         "data": {
           "label": "Categoria",
@@ -199,7 +199,7 @@
         },
         "measured": {
           "width": 240,
-          "height": 76
+          "height": 77
         },
         "selected": false,
         "dragging": false
@@ -208,8 +208,8 @@
         "id": "5e0612b6-fa06-403f-8516-2d70a6f8efa1",
         "type": "Table",
         "position": {
-          "x": 1259,
-          "y": -106
+          "x": 1243.9099372384937,
+          "y": -111.0300209205021
         },
         "data": {
           "label": "Producto",
@@ -265,7 +265,7 @@
         },
         "measured": {
           "width": 240,
-          "height": 152
+          "height": 154
         },
         "selected": false,
         "dragging": false
@@ -350,7 +350,7 @@
         },
         "measured": {
           "width": 240,
-          "height": 153
+          "height": 155
         },
         "selected": false,
         "dragging": false
@@ -359,8 +359,8 @@
         "id": "55426b28-95ae-4eba-9cfe-5a398a60d720",
         "type": "Table",
         "position": {
-          "x": 288.25889887340776,
-          "y": 465.45301099921244
+          "x": 130.65157669767555,
+          "y": 279.34223694063485
         },
         "data": {
           "label": "Repartidor",
@@ -407,17 +407,17 @@
         },
         "measured": {
           "width": 240,
-          "height": 126
+          "height": 127
         },
-        "selected": true,
+        "selected": false,
         "dragging": false
       },
       {
         "id": "a2570a35-21aa-4ef6-aceb-463f58cfc68d",
         "type": "Table",
         "position": {
-          "x": 625.284763949048,
-          "y": 507
+          "x": 464.3240944929812,
+          "y": 178.3719665271966
         },
         "data": {
           "label": "Entrega",
@@ -487,11 +487,11 @@
               }
             }
           ],
-          "isSelected": true
+          "isSelected": false
         },
         "measured": {
           "width": 240,
-          "height": 177
+          "height": 179
         },
         "selected": false,
         "dragging": false
@@ -500,8 +500,8 @@
         "id": "bd610dce-c5e0-4f0b-9320-4712999a07f7",
         "type": "Table",
         "position": {
-          "x": 50,
-          "y": 700
+          "x": 209.28399581589963,
+          "y": 592.6928870292887
         },
         "data": {
           "label": "Telefono_Cliente",
@@ -541,131 +541,7 @@
         },
         "measured": {
           "width": 240,
-          "height": 105
-        },
-        "selected": false,
-        "dragging": false
-      },
-      {
-        "id": "0f0a3c37-7fe5-4edb-9208-6707016e2b41",
-        "type": "Table",
-        "position": {
-          "x": 50,
-          "y": 950
-        },
-        "data": {
-          "label": "Proveedor",
-          "isConnectable": false,
-          "columns": [
-            {
-              "id": "7339885a-fa21-43a0-97ef-41c4d52805dd",
-              "name": "id_proveedor",
-              "type": "INT",
-              "position": 0,
-              "isPrimaryKey": true,
-              "isOptional": false,
-              "isUnique": true
-            },
-            {
-              "id": "76134d51-1035-4576-a2d6-1554f01f3e55",
-              "name": "razon_social",
-              "type": "VARCHAR(n)",
-              "position": 0,
-              "size": "50"
-            },
-            {
-              "id": "9af7e8bc-d598-4f25-bf68-87a3c87ffde3",
-              "name": "cuit",
-              "type": "VARCHAR(n)",
-              "position": 0,
-              "size": "13"
-            },
-            {
-              "id": "e6d6e1fe-6f7b-468b-bd3b-5c69718501b7",
-              "name": "telefono",
-              "type": "VARCHAR(n)",
-              "position": 0,
-              "size": "20"
-            },
-            {
-              "id": "29881324-4812-4b8a-b436-f98b5912ec10",
-              "name": "email",
-              "type": "VARCHAR(n)",
-              "position": 0,
-              "size": "50"
-            },
-            {
-              "id": "2016ee07-802b-4eaf-89d9-23aecb2aa50d",
-              "name": "direccion",
-              "type": "VARCHAR(n)",
-              "position": 0,
-              "size": "50"
-            }
-          ],
-          "isSelected": false
-        },
-        "measured": {
-          "width": 240,
-          "height": 176
-        },
-        "selected": false,
-        "dragging": false
-      },
-      {
-        "id": "e353c90d-2981-404f-a77b-d38c5ec07c5d",
-        "type": "Table",
-        "position": {
-          "x": 450,
-          "y": 950
-        },
-        "data": {
-          "label": "Producto_Proveedor",
-          "isConnectable": false,
-          "columns": [
-            {
-              "id": "fk_83cb2b10-c405-4f47-b816-254b6653245c",
-              "name": "fk_Producto",
-              "type": "None",
-              "isForeignKey": true,
-              "foreignKeyProps": {
-                "foreignKeyGroupId": "6a5aea30-037d-457c-9f58-102649a6340b",
-                "sourceTableId": "5e0612b6-fa06-403f-8516-2d70a6f8efa1",
-                "columns": [
-                  {
-                    "id": "fk_4bab181d-e99f-44ba-ad49-13d88cd0981d",
-                    "name": "id_producto",
-                    "type": "INT"
-                  }
-                ]
-              },
-              "isPrimaryKey": true,
-              "isOptional": false
-            },
-            {
-              "id": "fk_09cab35c-0c9d-4149-9f58-410fd806c335",
-              "name": "fk_Proveedor",
-              "type": "None",
-              "isForeignKey": true,
-              "foreignKeyProps": {
-                "foreignKeyGroupId": "937c82ce-024c-4af1-a142-62cc538b5a44",
-                "sourceTableId": "0f0a3c37-7fe5-4edb-9208-6707016e2b41",
-                "columns": [
-                  {
-                    "id": "fk_7339885a-fa21-43a0-97ef-41c4d52805dd",
-                    "name": "id_proveedor",
-                    "type": "INT"
-                  }
-                ]
-              },
-              "isPrimaryKey": true,
-              "isOptional": false
-            }
-          ],
-          "isSelected": false
-        },
-        "measured": {
-          "width": 240,
-          "height": 105
+          "height": 79
         },
         "selected": false,
         "dragging": false
@@ -855,67 +731,21 @@
             ]
           }
         }
-      },
-      {
-        "id": "5e0612b6-fa06-403f-8516-2d70a6f8efa1->e353c90d-2981-404f-a77b-d38c5ec07c5d_6a5aea30-037d-457c-9f58-102649a6340b",
-        "type": "Relational",
-        "source": "5e0612b6-fa06-403f-8516-2d70a6f8efa1",
-        "targetHandle": "foreign-key-handle-6a5aea30-037d-457c-9f58-102649a6340b",
-        "target": "e353c90d-2981-404f-a77b-d38c5ec07c5d",
-        "markerStart": {
-          "type": "arrow"
-        },
-        "data": {
-          "foreignKeyProps": {
-            "foreignKeyGroupId": "6a5aea30-037d-457c-9f58-102649a6340b",
-            "sourceTableId": "5e0612b6-fa06-403f-8516-2d70a6f8efa1",
-            "columns": [
-              {
-                "id": "fk_4bab181d-e99f-44ba-ad49-13d88cd0981d",
-                "name": "id_producto",
-                "type": "INT"
-              }
-            ]
-          }
-        }
-      },
-      {
-        "id": "0f0a3c37-7fe5-4edb-9208-6707016e2b41->e353c90d-2981-404f-a77b-d38c5ec07c5d_937c82ce-024c-4af1-a142-62cc538b5a44",
-        "type": "Relational",
-        "source": "0f0a3c37-7fe5-4edb-9208-6707016e2b41",
-        "targetHandle": "foreign-key-handle-937c82ce-024c-4af1-a142-62cc538b5a44",
-        "target": "e353c90d-2981-404f-a77b-d38c5ec07c5d",
-        "markerStart": {
-          "type": "arrow"
-        },
-        "data": {
-          "foreignKeyProps": {
-            "foreignKeyGroupId": "937c82ce-024c-4af1-a142-62cc538b5a44",
-            "sourceTableId": "0f0a3c37-7fe5-4edb-9208-6707016e2b41",
-            "columns": [
-              {
-                "id": "fk_7339885a-fa21-43a0-97ef-41c4d52805dd",
-                "name": "id_proveedor",
-                "type": "INT"
-              }
-            ]
-          }
-        }
       }
     ],
     "viewport": {
-      "x": 15.746340701364602,
-      "y": 172.37214307551267,
-      "zoom": 0.7578582832551991
+      "x": 289.9333660622219,
+      "y": 118.99861851019496,
+      "zoom": 0.8348276027874452
     }
   },
-  "name": "esquema_relacional",
+  "name": "modelo_relacional",
   "folder": {
     "name": "Diagrams",
     "folderType": 1,
     "depth": 0,
     "id": 384919
   },
-  "id": 608150,
-  "updatedAtTimestamp": 1790100190021
+  "id": 627502,
+  "updatedAtTimestamp": 1790728177
 }
