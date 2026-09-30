@@ -10,7 +10,7 @@ CREATE TABLE Cliente
 
 CREATE TABLE Metodo_Pago
 (
-  id_metodo_pago INT NOT NULL,
+  id_metodo_pago INT IDENTITY(1,1) NOT NULL,
   descripcion VARCHAR(35) NOT NULL,
   PRIMARY KEY (id_metodo_pago),
 );
@@ -28,7 +28,7 @@ CREATE TABLE Venta
 
 CREATE TABLE Categoria
 (
-  id_categoria INT NOT NULL,
+  id_categoria INT IDENTITY(1,1) NOT NULL,
   nombre_categoria VARCHAR(35) NOT NULL,
   PRIMARY KEY (id_categoria),
 );
