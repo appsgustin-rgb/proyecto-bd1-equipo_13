@@ -39,10 +39,14 @@ VALUES
 
 INSERT INTO Categoria (id_categoria, nombre_categoria)
 VALUES
-(1, 'Agua'),
-(2, 'Soda'),
-(3, 'Bidones'),
-(4, 'Bebidas');
+(1, 'Agua 350ml'),
+(1, 'Agua 500ml'),
+(1, 'Agua 1L'),
+(1, 'Agua 1,5L'),
+(2, 'Soda 500ml'),
+(2, 'Soda 1L'),
+(2, 'Soda 350ml'),
+(2, 'Soda 2L')
 
 
 -- ============================================
