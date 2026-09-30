@@ -89,7 +89,11 @@ VALUES
 ('Federico', 'Acosta', '3794111111'),
 ('Nicolas', 'Sanchez', '3794222222'),
 ('Martin', 'Diaz', '3794333333'),
-('Agustin', 'Romero', '3794444444');
+('Agustin', 'Romero', '3794444444'),
+('Ramon', 'Altamirano', '3794856743'),
+('Benjamin', 'Soto', '3794321243'),
+('Pedro', 'Diaz', '3794567890'),
+('Marcos', 'Romero', '3794321290');
 
 
 -- ============================================
