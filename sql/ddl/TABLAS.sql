@@ -85,23 +85,3 @@ CREATE TABLE Telefono_Cliente
   PRIMARY KEY (telefono, id_cliente),
   FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
 );
-
-CREATE TABLE Proveedor
-(
-  id_proveedor INT IDENTITY(1,1) NOT NULL,
-  razon_social VARCHAR(50) NOT NULL,
-  cuit VARCHAR(13) NOT NULL,
-  telefono VARCHAR(20) NOT NULL,
-  email VARCHAR(50) NOT NULL,
-  direccion VARCHAR(50) NOT NULL,
-  PRIMARY KEY (id_proveedor),
-);
-
-CREATE TABLE Producto_Proveedor
-(
-  id_producto INT NOT NULL,
-  id_proveedor INT NOT NULL,
-  PRIMARY KEY (id_producto, id_proveedor),
-  FOREIGN KEY (id_producto) REFERENCES Producto(id_producto),
-  FOREIGN KEY (id_proveedor) REFERENCES Proveedor(id_proveedor)
-);
