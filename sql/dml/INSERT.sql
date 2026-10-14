@@ -1,9 +1,11 @@
+USE master;
+go
 
+USE base-distribuidora;
+go
 -- ============================================
 -- 1. CLIENTES 
 -- ============================================
-
-DECLARE @id INT;                                                --Auxiliar para obtener el id_cliente generado automáticamente y ponerlo en la tabla Telefono_Cliente.
 
 INSERT INTO Cliente (nombre, apellido, direccion, email) 
 VALUES ('Juan', 'Perez', 'Av. 3 de abril 1250', 'juan.perez@gmail.com');
