@@ -3,10 +3,10 @@ go
 
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = 'base-distribuidora')
 BEGIN
-    CREATE DATABASE 'base-distribuidora'
+    CREATE DATABASE base_distribuidora
 END 
 go
-USE base-distribuidora;
+USE base_distribuidora;
 go
 
 CREATE TABLE Cliente

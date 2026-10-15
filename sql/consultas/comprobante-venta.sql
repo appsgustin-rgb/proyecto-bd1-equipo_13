@@ -1,6 +1,7 @@
--- ============================================
--- COMPROBANTE
--- ============================================
+USE master;
+go
+USE base_distribuidora;
+go
 
 SELECT
     v.id_venta,

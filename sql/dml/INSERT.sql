@@ -1,7 +1,7 @@
 USE master;
 go
 
-USE base-distribuidora;
+USE base_distribuidora;
 go
 -- ============================================
 -- 1. CLIENTES 
