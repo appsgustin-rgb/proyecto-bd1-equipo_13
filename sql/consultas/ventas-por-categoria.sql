@@ -4,11 +4,12 @@ USE base_distribuidora;
 go
 
 -- ============================================================
--- Reporte agregado: total de ventas por categoria de producto
+-- Reporte agregado: total de ventas por categoria de producto en un rango de fechas
 -- Une 4 tablas: Categoria + Producto + Detalle_Venta + Venta
 -- Usa GROUP BY, SUM y COUNT
 -- ============================================================
-
+DECLARE @fecha_desde DATE = '2026-09-01';
+DECLARE @fecha_hasta DATE = '2026-09-30';
 SELECT
     c.id_categoria,
     c.nombre_categoria,
@@ -22,5 +23,6 @@ INNER JOIN Detalle_Venta dv
     ON dv.id_producto = p.id_producto
 INNER JOIN Venta v
     ON v.id_venta = dv.id_venta
+    WHERE v.fecha_venta BETWEEN @fecha_desde AND @fecha_hasta
 GROUP BY c.id_categoria, c.nombre_categoria
 ORDER BY total_vendido DESC;
