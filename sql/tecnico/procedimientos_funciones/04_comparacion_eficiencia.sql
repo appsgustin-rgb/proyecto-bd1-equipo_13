@@ -7,9 +7,9 @@ SET NOCOUNT ON;
    ETAPA V - COMPARACION DE EFICIENCIA
 
    A) 1000 inserciones directas en Cliente.
-   B) 1000 ejecuciones de dbo.sp_InsertarCliente (Joa).
+   B) 1000 ejecuciones de dbo.sp_InsertarCliente 
    C) 1000 calculos del total con una consulta SQL directa.
-   D) 1000 calculos del total usando dbo.fn_TotalVenta (tuya).
+   D) 1000 calculos del total usando dbo.fn_TotalVenta 
 
    Las inserciones de prueba se revierten mediante ROLLBACK.
    Los valores IDENTITY pueden avanzar aunque se reviertan
