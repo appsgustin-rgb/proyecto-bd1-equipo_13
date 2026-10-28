@@ -15,5 +15,5 @@
 
 * #### Conclusiones
 
-###### En base a pruebas realizadas con las transacciones especificadas en transaccion\_venta.sql, transaccion\_clientes.sql con sus respectivas pruebas de errores, concluimos que sobre todo por una de sus propiedades mas características, siendo esta la **atomicidad,** una trasaccion bien definida sobre un bloque de consultas mitiga el riesgo de perdida de consistencia y defectos de integridad de la bd ante los mas minimos errores de sintaxis y lógica en las consultas asociadas, mediante un rollback total de todos los cambios que fueron realizados por el bloque en si.
+##### En base a pruebas realizadas con las transacciones especificadas en transaccion\_venta.sql, transaccion\_clientes.sql con sus respectivas pruebas de errores, concluimos que sobre todo por una de sus propiedades mas características, siendo esta la **atomicidad,** una trasaccion bien definida sobre un bloque de consultas mitiga el riesgo de perdida de consistencia y defectos de integridad de la bd ante los mas minimos errores de sintaxis y lógica en las consultas asociadas, mediante un rollback total de todos los cambios que fueron realizados por el bloque en si.
 
