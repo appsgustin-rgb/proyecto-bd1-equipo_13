@@ -6,8 +6,12 @@ go
 -- ============================================================
 -- Consulta avanzada: seguimiento / control de entregas
 -- Une 3 tablas: Entrega + Venta + Cliente
--- Aplica filtros condicionales con WHERE, CASE y fechas
+-- Usa Detalle_Venta en subconsultas para obtener el total de la venta
+-- Aplica filtros condicionales con WHERE, CASE, subconsulta y HAVING
 -- ============================================================
+
+-- Importe minimo de la venta para incluir la entrega en el control
+DECLARE @importe_minimo FLOAT = 4000;
 
 SELECT
     e.id_entrega,
@@ -30,7 +34,11 @@ SELECT
              AND DATEDIFF(DAY, e.fecha_entrega, GETDATE()) > 30 THEN 'Urgente'
         WHEN e.estado_entrega = 'Pendiente' THEN 'En seguimiento'
         ELSE 'Finalizada'
-    END AS prioridad
+    END AS prioridad,
+    -- Subconsulta: total de la venta asociada a la entrega
+    (SELECT SUM(dv.cantidad * dv.precio_historico)
+     FROM Detalle_Venta dv
+     WHERE dv.id_venta = v.id_venta) AS total_venta
 FROM Entrega e
 INNER JOIN Venta v
     ON e.id_venta = v.id_venta
@@ -38,8 +46,16 @@ INNER JOIN Cliente c
     ON v.id_cliente = c.id_cliente
 -- Filtro condicional: pendientes, o entregas hechas a una direccion
 -- distinta a la registrada del cliente
-WHERE e.estado_entrega = 'Pendiente'
-   OR e.direccion_entrega <> c.direccion
+WHERE (e.estado_entrega = 'Pendiente'
+       OR e.direccion_entrega <> c.direccion)
+  -- Filtro con subconsulta y HAVING: solo ventas cuyo total
+  -- alcanza el importe minimo
+  AND v.id_venta IN (
+        SELECT dv2.id_venta
+        FROM Detalle_Venta dv2
+        GROUP BY dv2.id_venta
+        HAVING SUM(dv2.cantidad * dv2.precio_historico) >= @importe_minimo
+  )
 ORDER BY
     CASE WHEN e.estado_entrega = 'Pendiente' THEN 0 ELSE 1 END,
     e.fecha_entrega ASC;
