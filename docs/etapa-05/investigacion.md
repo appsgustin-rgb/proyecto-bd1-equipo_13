@@ -109,11 +109,6 @@ Las inserciones de prueba se realizan dentro de una transacción que luego se re
 
 **Script:** `sql/tecnico/procedimientos_funciones/04_comparacion_eficiencia.sql`.
 
-## 6. Conclusión
 
-Los procedimientos y las funciones almacenadas permiten organizar la lógica de la base de datos y reutilizar operaciones de manera controlada. En este proyecto, los procedimientos se utilizan para insertar, modificar y eliminar clientes, aplicando validaciones y reglas de negocio. Las funciones permiten calcular totales, determinar porcentajes de descuento y consultar las ventas de un cliente.
-
-La comparación de eficiencia complementa la implementación al permitir medir el tiempo de ejecución de distintas alternativas. Para obtener una conclusión válida sobre el rendimiento, es necesario ejecutar las pruebas y registrar sus resultados reales.
-
-Las evidencias de las pruebas se encuentran en la carpeta `evidencias/` del proyecto.
+Las evidencias de las pruebas se encuentran en la carpeta `evidencias/evidencia-funciones` del proyecto.
 
