@@ -139,11 +139,4 @@ Las inserciones se ejecutaron dentro de una transacción que luego se revirtió,
 
 **Evidencia:** `ComparacionOptimizaciones.png`.
 
-## 6. Conclusión
-
-Las pruebas permitieron comprobar el funcionamiento de las tres funciones almacenadas y comparar los tiempos de ejecución de las operaciones directas con los de los procedimientos y las funciones.
-
-La función `dbo.fn_TotalVenta` calculó un total de 4600 para la venta 1; `dbo.fn_CalcularDescuentoCliente` devolvió un descuento de 0.10, equivalente al 10 %; y `dbo.fn_VentasDeCliente` mostró cuatro ventas con sus respectivas fechas, métodos de pago e importes.
-
-En la comparación de eficiencia, las operaciones directas registraron menores tiempos en la ejecución realizada. Aun así, los procedimientos y las funciones ofrecen ventajas de organización, reutilización y centralización de las reglas de negocio. Por lo tanto, la elección de cada alternativa debe considerar tanto el rendimiento medido como las necesidades de mantenimiento y funcionamiento del sistema.
 
