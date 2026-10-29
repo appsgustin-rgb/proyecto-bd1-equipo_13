@@ -49,7 +49,7 @@ SELECT
 	fecha_venta,
 	importe
 	FROM Venta_Historica
-	WHERE importe BETWEEN 2000 AND 8500;
+	WHERE fecha_venta BETWEEN '2023-01-01' AND '2023-03-31';
 
 --Parte 4: Creacion de indice agrupado sobe la fecha
 CREATE CLUSTERED INDEX IX_VentaHistorica_Fecha
