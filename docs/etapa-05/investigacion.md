@@ -58,57 +58,92 @@ Las capturas están en `evidencias/`.
 
 ## 4. Funciones almacenadas
 
-En el proyecto se implementaron tres funciones almacenadas en SQL Server para realizar cálculos y consultar información relacionada con las ventas y los clientes.
+En el proyecto se implementaron tres funciones almacenadas en SQL Server para calcular información y consultar datos relacionados con las ventas y los clientes.
 
 | **Función** | **Tipo** | **Descripción** |
 |---|---|---|
-| `dbo.fn_TotalVenta` | Escalar | Calcula el total de una venta sumando la cantidad de cada producto multiplicada por su precio histórico. Si la venta no tiene detalles, devuelve 0. |
-| `dbo.fn_CalcularDescuentoCliente` | Escalar | Calcula el porcentaje de descuento correspondiente a un cliente según el monto acumulado de sus ventas. |
-| `dbo.fn_VentasDeCliente` | Con valores de tabla | Devuelve información de las ventas de un cliente, incluyendo el identificador, la fecha, el método de pago y el total. |
+| `dbo.fn_TotalVenta` | Escalar | Calcula el total de una venta multiplicando la cantidad de cada producto por su precio histórico y sumando los resultados. |
+| `dbo.fn_CalcularDescuentoCliente` | Escalar | Devuelve el porcentaje de descuento correspondiente a un cliente según el monto acumulado de sus ventas. |
+| `dbo.fn_VentasDeCliente` | Con valores de tabla | Devuelve las ventas de un cliente, incluyendo el identificador, la fecha, el método de pago y el total. |
 
-### 4.1. Cálculo del total de una venta
+### 4.1. Resultado de la función `dbo.fn_TotalVenta`
 
-La función `dbo.fn_TotalVenta(@id_venta INT)` recibe el identificador de una venta y calcula su importe total a partir de los detalles registrados en `Detalle_Venta`.
+La función calcula el importe total de una venta a partir de sus detalles. En la prueba realizada con la venta identificada con el número 1, se obtuvo el siguiente resultado:
 
-Para cada detalle, multiplica la cantidad vendida por el precio histórico del producto y suma los resultados. Esto permite consultar el total sin repetir la fórmula en cada consulta.
+| **Campo** | **Resultado** |
+|---|---:|
+| `TotalVenta` | 4600 |
 
-### 4.2. Cálculo del descuento de un cliente
+Este resultado indica que el total calculado para la venta 1 fue de **4600**.
 
-La función `dbo.fn_CalcularDescuentoCliente(@id_cliente INT)` determina el porcentaje de descuento de acuerdo con el monto acumulado de las ventas del cliente.
+**Evidencia:** `totalVenta.png`.
 
-Las reglas implementadas son:
+### 4.2. Resultado de la función `dbo.fn_CalcularDescuentoCliente`
 
-- Si las ventas acumuladas son iguales o superiores a 15.000, devuelve un descuento del 10 %.
-- Si las ventas acumuladas son iguales o superiores a 10.000, devuelve un descuento del 5 %.
-- Si no alcanza esos importes, devuelve 0 %.
+La prueba de la función de descuento devolvió el siguiente valor:
 
-La función devuelve el porcentaje calculado, pero no aplica ni guarda el descuento automáticamente en una venta.
+| **Campo** | **Resultado** |
+|---|---:|
+| `Descuento` | 0.10 |
+| Descuento expresado en porcentaje | 10 % |
 
-### 4.3. Consulta de ventas por cliente
+El resultado `0.10` representa un descuento del **10 %** para el cliente consultado, de acuerdo con las reglas definidas en la función.
 
-La función `dbo.fn_VentasDeCliente(@id_cliente INT)` devuelve una tabla con las ventas asociadas a un cliente. Incluye el identificador de la venta, la fecha, el método de pago y el importe total.
+**Evidencia:** `descuentoCliente.png`.
 
-Al devolver una tabla, permite utilizarse dentro de consultas SQL para consultar o filtrar las ventas de un cliente.
+### 4.3. Resultado de la función `dbo.fn_VentasDeCliente`
 
-**Script:** `sql/tecnico/funciones/01_funciones.sql`.
+La consulta de las ventas del cliente devolvió los siguientes registros:
+
+| **ID de venta** | **Fecha de venta** | **Método de pago** | **Total de venta** |
+|---:|---|---|---:|
+| 1 | 2026-09-01 | Efectivo | 4600 |
+| 9 | 2026-09-09 | Transferencia | 7300 |
+| 11 | 2026-10-27 | Efectivo | 2800 |
+| 12 | 2026-10-27 | Efectivo | 2800 |
+
+La función permite consultar las ventas asociadas al cliente y visualizar sus fechas, métodos de pago e importes totales.
+
+**Evidencia:** `ventasCliente.png`.
 
 ## 5. Comparación de eficiencia
 
-Para analizar las diferencias entre las operaciones directas y el uso de procedimientos y funciones almacenadas, el proyecto incluye el script `04_comparacion_eficiencia.sql`.
+Para comparar las alternativas de implementación se ejecutó el script `04_comparacion_eficiencia.sql`, que mide el tiempo de ejecución de 1000 repeticiones de cada operación.
 
-La comparación contempla dos pruebas:
+Los resultados obtenidos fueron los siguientes:
 
-1. **Inserciones de clientes:** compara la inserción directa mediante instrucciones `INSERT` con la inserción mediante llamadas al procedimiento `sp_InsertarCliente`.
-2. **Cálculo de totales:** compara las consultas que calculan directamente el total de una venta con las consultas que utilizan `dbo.fn_TotalVenta`.
+| **Operación** | **Repeticiones** | **Tiempo (ms)** |
+|---|---:|---:|
+| A. INSERT directo en `Cliente` | 1000 | 20 |
+| B. `EXEC dbo.sp_InsertarCliente` | 1000 | 39 |
+| C. Consulta directa del total | 1000 | 11 |
+| D. `dbo.fn_TotalVenta` | 1000 | 23 |
 
-El script mide el tiempo de ejecución de cada alternativa en milisegundos y permite observar las diferencias obtenidas en las pruebas.
+### 5.1. Análisis de los resultados
 
-Las inserciones de prueba se realizan dentro de una transacción que luego se revierte, por lo que los registros de prueba no quedan guardados. Sin embargo, los valores de identidad pueden avanzar.
+En la prueba de inserción, el `INSERT` directo tardó **20 ms**, mientras que las llamadas al procedimiento `sp_InsertarCliente` tardaron **39 ms**. En esta ejecución, el procedimiento necesitó 19 ms adicionales para completar las 1000 operaciones.
 
-**Importante:** los tiempos deben completarse con los resultados obtenidos al ejecutar el script. No se debe afirmar que una alternativa es más rápida sin comprobar las mediciones. El resultado puede variar según el equipo, los datos y las condiciones de ejecución.
+En la prueba de cálculo del total, la consulta directa tardó **11 ms**, mientras que el uso de `dbo.fn_TotalVenta` tardó **23 ms**. La diferencia fue de 12 ms para las 1000 repeticiones.
 
-**Script:** `sql/tecnico/procedimientos_funciones/04_comparacion_eficiencia.sql`.
+En estas mediciones, las operaciones directas presentaron un menor tiempo de ejecución. Sin embargo, esto no significa que los procedimientos y las funciones sean innecesarios: permiten centralizar la lógica, reutilizar código y mantener las reglas de negocio en un único lugar. Además, los resultados corresponden a una ejecución específica y pueden variar según las condiciones de prueba.
 
+### 5.2. Verificación de los datos utilizados
 
-Las evidencias de las pruebas se encuentran en la carpeta `evidencias/evidencia-funciones` del proyecto.
+| **Dato** | **Resultado** |
+|---|---|
+| Venta utilizada | 1 |
+| Último total calculado | 4600 |
+| Observación | Las inserciones de prueba fueron revertidas. |
+
+Las inserciones se ejecutaron dentro de una transacción que luego se revirtió, por lo que los registros de prueba no quedaron guardados en la tabla. Esto permite realizar la comparación sin conservar esos registros de prueba.
+
+**Evidencia:** `ComparacionOptimizaciones.png`.
+
+## 6. Conclusión
+
+Las pruebas permitieron comprobar el funcionamiento de las tres funciones almacenadas y comparar los tiempos de ejecución de las operaciones directas con los de los procedimientos y las funciones.
+
+La función `dbo.fn_TotalVenta` calculó un total de 4600 para la venta 1; `dbo.fn_CalcularDescuentoCliente` devolvió un descuento de 0.10, equivalente al 10 %; y `dbo.fn_VentasDeCliente` mostró cuatro ventas con sus respectivas fechas, métodos de pago e importes.
+
+En la comparación de eficiencia, las operaciones directas registraron menores tiempos en la ejecución realizada. Aun así, los procedimientos y las funciones ofrecen ventajas de organización, reutilización y centralización de las reglas de negocio. Por lo tanto, la elección de cada alternativa debe considerar tanto el rendimiento medido como las necesidades de mantenimiento y funcionamiento del sistema.
 
