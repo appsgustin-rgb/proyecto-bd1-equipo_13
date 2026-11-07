@@ -2,7 +2,7 @@ USE master;
 go
 
 go
-USE base_consorcio_2025;
+USE base_distribuidora;
 GO
 --PARTE 1: creacion tabla de pruebas
 CREATE TABLE Venta_Historica
