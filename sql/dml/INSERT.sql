@@ -58,10 +58,10 @@ VALUES
 INSERT INTO Categoria (nombre_categoria)
 VALUES
 ('agua mineral'),
-('agua con gas'),
+('agua carbonatada'),
 ('agua de mesa'),
 ('agua saborizada'),
-('sodas'),
+('agua alcalina'),
 ('hielo'),
 ('dispensers'),
 ('accesorios');
