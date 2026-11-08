@@ -1,16 +1,6 @@
 USE base_distribuidora;
 GO
 
--- ============================================================
--- ETAPA V - OPTIMIZACION DE CONSULTAS A TRAVES DE INDICES
--- Tabla de pruebas Venta_Historica con 1.000.000 de registros.
--- Se mide la misma consulta por rango de fechas en 3 escenarios:
---   1. Sin indices (heap)
---   2. Indice agrupado sobre fecha_venta
---   3. Indice no agrupado con cobertura (fecha_venta INCLUDE importe)
--- Ver resultados en docs/etapa-05/indices.md
--- ============================================================
-
 -- PARTE 0: preparacion. Se puede volver a ejecutar sin errores.
 IF OBJECT_ID('dbo.Venta_Historica', 'U') IS NULL
 BEGIN

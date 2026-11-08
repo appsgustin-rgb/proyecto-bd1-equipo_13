@@ -1,7 +1,3 @@
--- ============================================================
--- ETAPA III - IMPLEMENTACION (DML)
--- Datos de prueba. Ejecutar despues de sql/ddl/TABLAS.sql.
--- ============================================================
 USE base_distribuidora;
 GO
 -- ============================================
@@ -62,10 +58,10 @@ VALUES
 INSERT INTO Categoria (nombre_categoria)
 VALUES
 ('agua mineral'),
-('agua carbonatada'),
+('agua con gas'),
 ('agua de mesa'),
 ('agua saborizada'),
-('agua alcalina'),
+('sodas'),
 ('hielo'),
 ('dispensers'),
 ('accesorios');

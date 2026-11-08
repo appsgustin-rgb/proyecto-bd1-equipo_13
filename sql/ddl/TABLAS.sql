@@ -1,10 +1,3 @@
--- ============================================================
--- ETAPA III - IMPLEMENTACION (DDL)
--- Sistema Gestor de Ventas - Distribuidora de Agua y Soda
--- Crea la base base_distribuidora, sus tablas y las
--- restricciones de integridad (PK, FK, CHECK, UNIQUE, NOT NULL).
--- ============================================================
-
 USE master;
 GO
 
@@ -17,10 +10,7 @@ GO
 USE base_distribuidora;
 GO
 
--- ------------------------------------------------------------
--- Si las tablas ya existen se eliminan (en orden inverso a las
--- dependencias) para poder volver a ejecutar el script.
--- ------------------------------------------------------------
+
 DROP TABLE IF EXISTS Telefono_Cliente;
 DROP TABLE IF EXISTS Entrega;
 DROP TABLE IF EXISTS Detalle_Venta;
@@ -31,10 +21,6 @@ DROP TABLE IF EXISTS Categoria;
 DROP TABLE IF EXISTS Metodo_Pago;
 DROP TABLE IF EXISTS Cliente;
 GO
-
--- ============================================================
--- TABLAS SIN CLAVES FORANEAS
--- ============================================================
 
 CREATE TABLE Cliente
 (
@@ -70,10 +56,6 @@ CREATE TABLE Repartidor
   telefono      VARCHAR(20) NOT NULL,
   CONSTRAINT PK_Repartidor PRIMARY KEY (id_repartidor)
 );
-
--- ============================================================
--- TABLAS CON CLAVES FORANEAS
--- ============================================================
 
 CREATE TABLE Venta
 (
