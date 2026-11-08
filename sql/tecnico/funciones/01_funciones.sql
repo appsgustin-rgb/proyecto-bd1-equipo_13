@@ -26,10 +26,10 @@ CREATE OR ALTER FUNCTION dbo.fn_TotalVenta
 (
     @id_venta INT
 )
-RETURNS FLOAT
+RETURNS DECIMAL(12,2)
 AS
 BEGIN
-    DECLARE @total FLOAT;
+    DECLARE @total DECIMAL(12,2);
 
     SELECT @total = SUM(dv.cantidad * dv.precio_historico)
     FROM dbo.Detalle_Venta AS dv
@@ -59,7 +59,7 @@ CREATE OR ALTER FUNCTION dbo.fn_CalcularDescuentoCliente
 RETURNS DECIMAL(5,2)
 AS
 BEGIN
-    DECLARE @total_acumulado FLOAT;
+    DECLARE @total_acumulado DECIMAL(12,2);
 
     SELECT @total_acumulado =
         SUM(dv.cantidad * dv.precio_historico)

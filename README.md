@@ -54,8 +54,9 @@ relacional editable en `docs/etapa-02/modelo_relacional.erdplus`.
   alteren ventas pasadas.
 - **Normalización hasta 3FN:** categorías, métodos de pago y repartidores quedan como
   entidades independientes; los teléfonos se separan para admitir varios por cliente.
-- **Restricciones de dominio:** `precio_actual` y `precio_historico` deben ser mayores a 0
-  y `stock` no puede ser negativo.
+- **Restricciones con nombre propio:** claves primarias y foráneas (`PK_...`, `FK_...`),
+  `CHECK` de precios mayores a 0, stock no negativo, cantidad mayor a 0 y estados de entrega
+  válidos, y `UNIQUE` en categorías y métodos de pago. Los importes son `DECIMAL(10,2)`.
 
 ---
 
@@ -94,8 +95,12 @@ calculan con `precio_historico`. El detalle de cada caso está en `docs/etapa-04
   o funciones (1000 repeticiones de cada una).
 
 **Transacciones** (`docs/etapa-05/transacciones.md`)
-- Registro de una venta con descuento de stock y alta/modificación de clientes, cada una
-  con una versión que provoca un error para comprobar el `ROLLBACK`.
+- Registro de una venta (`INSERT` en `Venta` y `Detalle_Venta` y descuento de stock en
+  `Producto`), con validación previa de stock y precio histórico tomado del precio actual.
+- Alta de un cliente con su teléfono y modificación de otro cliente, invocando
+  `sp_InsertarCliente` y `sp_ModificarCliente` dentro de la transacción.
+- Cada una tiene una versión que provoca un error después de los `INSERT` para comprobar
+  que el `ROLLBACK` deja la base sin cambios.
 
 **Triggers de auditoría** (`docs/etapa-05/triggers-auditoria.md`)
 - `trg_AuditoriaProducto_Insert`, `trg_AuditoriaProducto_Update` y
@@ -158,14 +163,14 @@ Requisitos: **SQL Server** (las pruebas se realizaron sobre SQL Server 2025) y
 
 | Paso | Script | Qué hace |
 |------|--------|----------|
-| 1 | `sql/ddl/TABLAS.sql` | Crea la base `base_distribuidora` y sus tablas. |
+| 1 | `sql/ddl/TABLAS.sql` | Crea la base `base_distribuidora` y sus tablas (si ya existían, las vuelve a crear vacías). |
 | 2 | `sql/dml/INSERT.sql` | Carga los datos de prueba. |
 | 3 | `sql/consultas/*.sql` | Consultas de negocio de la etapa 4 (solo lectura). |
 | 4 | `sql/tecnico/procedimientos_funciones/01_procedimientos_crud.sql` | Crea los procedimientos CRUD de `Cliente`. |
 | 5 | `sql/tecnico/funciones/01_funciones.sql` | Crea las funciones y ejecuta sus pruebas. |
 | 6 | `sql/tecnico/procedimientos_funciones/02_lote_insert_directo.sql` y `03_lote_con_procedimientos.sql` | Cargan clientes adicionales, con `INSERT` directo y con `sp_InsertarCliente`. |
 | 7 | `sql/tecnico/procedimientos_funciones/04_comparacion_eficiencia.sql` | Mide los tiempos (las inserciones de prueba se revierten). |
-| 8 | `sql/tecnico/transacciones/*.sql` | Transacciones correctas y con error. Usan `sp_InsertarCliente` y clientes cargados en el paso 6. |
+| 8 | `sql/tecnico/transacciones/*.sql` | Transacciones correctas y con error (`transaccion_venta`, `transaccion_venta_ERROR`, `transaccion_cliente`, `transaccion_cliente_ERROR`). Usan los procedimientos y clientes cargados en el paso 6. |
 | 9 | `sql/tecnico/triggers/01_triggers_auditoria.sql` y `02_pruebas_triggers.sql` | Crean las tablas y triggers de auditoría y los prueban. |
 | 10 | `sql/tecnico/indices/indices.sql` | Prueba de rendimiento con índices sobre una tabla de 1.000.000 de registros (tarda en cargar). |
 

@@ -1,6 +1,6 @@
 # Informe: Optimización de consultas mediante índices (SQL Server)
 
-**Base:** `base_consorcio_2025` · **Tabla de pruebas:** `Venta_Historica` (1.000.000 de registros simulados)
+**Base:** `base_distribuidora` · **Tabla de pruebas:** `Venta_Historica` (1.000.000 de registros simulados)
 **Tema:** Etapa V – Optimización de consultas a través de índices
 **Fecha de las mediciones:** 29/10/2026
 

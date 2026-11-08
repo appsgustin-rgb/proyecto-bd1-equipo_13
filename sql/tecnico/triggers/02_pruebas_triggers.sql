@@ -10,7 +10,8 @@ GO
 -- ============================================================
 
 
--- PRUEBA 1
+-- PRUEBA 1: cambio de precio de un producto.
+-- Esperado: fila UPDATE con precio_anterior 800 y precio_nuevo 900.
 
 SELECT id_producto, nombre_producto, precio_actual, stock
 FROM dbo.Producto
@@ -26,7 +27,8 @@ ORDER BY id_auditoria DESC;
 GO
 
 
--- PRUEBA 2
+-- PRUEBA 2: descuento de stock (simula una venta).
+-- Esperado: fila UPDATE con stock_anterior 100 y stock_nuevo 97.
 
 UPDATE dbo.Producto
 SET stock = stock - 3
@@ -38,7 +40,8 @@ ORDER BY id_auditoria DESC;
 GO
 
 
--- PRUEBA 3 
+-- PRUEBA 3: aumento del 10 % a toda la categoria 1 (3 productos).
+-- Esperado: una fila por cada producto modificado.
 
 UPDATE dbo.Producto
 SET precio_actual = precio_actual * 1.10
@@ -50,7 +53,8 @@ ORDER BY id_auditoria DESC;
 GO
 
 
--- PRUEBA 3B
+-- PRUEBA 3B: UPDATE que no cambia ningun valor.
+-- Esperado: no se agrega ningun registro (la ultima fila sigue siendo la de la prueba 3).
 
 UPDATE dbo.Producto
 SET precio_actual = precio_actual
@@ -62,7 +66,8 @@ ORDER BY id_auditoria DESC;
 GO
 
 
--- PRUEBA 4
+-- PRUEBA 4: alta y baja de un producto de prueba.
+-- Esperado: una fila INSERT y una fila DELETE.
 
 INSERT INTO dbo.Producto (nombre_producto, precio_actual, stock, id_categoria)
 VALUES ('Producto de prueba', 1000.00, 10, 1);
@@ -76,7 +81,8 @@ ORDER BY id_auditoria DESC;
 GO
 
 
--- PRUEBA 5
+-- PRUEBA 5: cambio de precio dentro de una transaccion deshecha.
+-- Esperado: el registro existe dentro de la transaccion y desaparece con el ROLLBACK.
 
 BEGIN TRANSACTION;
 
@@ -96,7 +102,8 @@ WHERE precio_nuevo = 99999;
 GO
 
 
--- PRUEBA 6
+-- PRUEBA 6: cambios de estado de la entrega 9 (Pendiente -> En camino -> Entregada).
+-- Esperado: dos filas en Auditoria_Entrega.
 
 UPDATE dbo.Entrega
 SET estado_entrega = 'En camino'
@@ -136,7 +143,7 @@ GO
 -- ============================================================
 
 
--- CONSULTA 1 
+-- CONSULTA 1: historial de cambios de precio.
 
 SELECT
     a.fecha,
@@ -152,7 +159,7 @@ ORDER BY a.fecha DESC;
 GO
 
 
--- CONSULTA 2 
+-- CONSULTA 2: productos eliminados con su ultimo precio y stock.
 
 SELECT
     a.fecha,
@@ -167,7 +174,7 @@ ORDER BY a.fecha DESC;
 GO
 
 
--- CONSULTA 3
+-- CONSULTA 3: historial de estados de la entrega 9.
 
 SELECT
     a.fecha,

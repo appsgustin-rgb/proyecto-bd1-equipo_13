@@ -54,7 +54,7 @@ dentro de una consulta y no puede modificar datos.
 | Modificar cliente 999 | Error 50011 |
 | Insertar sin nombre | Error 50010 |
 
-Las capturas están en `evidencias/`.
+Las capturas están en `evidencias/` (`error_50010.png`, `error_50011.png`, `error_50013.png` y `errores.png`).
 
 ## 4. Funciones almacenadas
 
@@ -74,37 +74,43 @@ La función calcula el importe total de una venta a partir de sus detalles. En l
 |---|---:|
 | `TotalVenta` | 4600 |
 
-Este resultado indica que el total calculado para la venta 1 fue de **4600**.
+Este resultado indica que el total calculado para la venta 1 fue de **4600** (3 × 800 + 2 × 1100). Para una venta inexistente la función devuelve **0**.
 
-**Evidencia:** `totalVenta.png`.
+**Evidencia:** `evidencias/evidencia-funciones/totalVentas.png`.
 
 ### 4.2. Resultado de la función `dbo.fn_CalcularDescuentoCliente`
 
-La prueba de la función de descuento devolvió el siguiente valor:
+La función aplica las siguientes reglas sobre el total acumulado de compras del cliente: 10 % desde 15000, 5 % desde 10000 y 0 % por debajo de 10000.
 
-| **Campo** | **Resultado** |
-|---|---:|
-| `Descuento` | 0.10 |
-| Descuento expresado en porcentaje | 10 % |
+Resultado de la PRUEBA 2 de `01_funciones.sql` con los datos de `INSERT.sql`:
 
-El resultado `0.10` representa un descuento del **10 %** para el cliente consultado, de acuerdo con las reglas definidas en la función.
+| **Cliente** | **Ventas** | **Total acumulado** | **Descuento** |
+|---|---|---:|---:|
+| Camila Lopez | 8 | 16800 | 0.10 |
+| Carlos Rodriguez | 3 y 10 | 16300 | 0.10 |
+| Sofia Martinez | 6 | 12300 | 0.05 |
+| Juan Perez | 1 y 9 | 11900 | 0.05 |
+| Lucia Fernandez | 4 | 10500 | 0.05 |
+| Maria Gomez | 2 | 6900 | 0.00 |
+| Matias Benitez | 5 | 6800 | 0.00 |
+| Diego Gonzalez | 7 | 4200 | 0.00 |
 
-**Evidencia:** `descuentoCliente.png`.
+Los clientes sin compras (por ejemplo, los cargados en los lotes del punto 3) obtienen 0.00.
+
+**Evidencia:** `evidencias/evidencia-funciones/descuentoCliente.png`. La captura se tomó sobre una base en la que el cliente 1 tenía, además, dos ventas de prueba de 2800 cada una (ventas 11 y 12), por lo que su total acumulado era 17500 y la función devolvió **0.10**, de acuerdo con la regla del 10 %.
 
 ### 4.3. Resultado de la función `dbo.fn_VentasDeCliente`
 
-La consulta de las ventas del cliente devolvió los siguientes registros:
+La consulta de las ventas del cliente 1 con los datos de `INSERT.sql` devuelve:
 
 | **ID de venta** | **Fecha de venta** | **Método de pago** | **Total de venta** |
 |---:|---|---|---:|
 | 1 | 2026-09-01 | Efectivo | 4600 |
 | 9 | 2026-09-09 | Transferencia | 7300 |
-| 11 | 2026-10-27 | Efectivo | 2800 |
-| 12 | 2026-10-27 | Efectivo | 2800 |
 
-La función permite consultar las ventas asociadas al cliente y visualizar sus fechas, métodos de pago e importes totales.
+La función permite consultar las ventas asociadas al cliente y visualizar sus fechas, métodos de pago e importes totales. Para un cliente inexistente devuelve cero filas.
 
-**Evidencia:** `ventasCliente.png`.
+**Evidencia:** `evidencias/evidencia-funciones/ventaCliente.png`. La captura incluye además las ventas de prueba 11 y 12 mencionadas en el punto 4.2.
 
 ## 5. Comparación de eficiencia
 
@@ -137,6 +143,6 @@ En estas mediciones, las operaciones directas presentaron un menor tiempo de eje
 
 Las inserciones se ejecutaron dentro de una transacción que luego se revirtió, por lo que los registros de prueba no quedaron guardados en la tabla. Esto permite realizar la comparación sin conservar esos registros de prueba.
 
-**Evidencia:** `ComparacionOptimizaciones.png`.
+**Evidencia:** `evidencias/evidencia-funciones/ComparacionOptimizacion.png`.
 
 

@@ -1,8 +1,9 @@
-USE master;
-go
-
+-- ============================================================
+-- ETAPA III - IMPLEMENTACION (DML)
+-- Datos de prueba. Ejecutar despues de sql/ddl/TABLAS.sql.
+-- ============================================================
 USE base_distribuidora;
-go
+GO
 -- ============================================
 -- 1. CLIENTES 
 -- ============================================
@@ -63,7 +64,11 @@ VALUES
 ('agua mineral'),
 ('agua carbonatada'),
 ('agua de mesa'),
-('agua saborizada');
+('agua saborizada'),
+('agua alcalina'),
+('hielo'),
+('dispensers'),
+('accesorios');
 
 
 -- ============================================
@@ -94,7 +99,11 @@ VALUES
 ('Efectivo'),
 ('Tarjeta de debito'),
 ('Tarjeta de credito'),
-('Transferencia');
+('Transferencia'),
+('Mercado Pago'),
+('QR'),
+('Cuenta corriente'),
+('Cheque');
 
 
 -- ============================================

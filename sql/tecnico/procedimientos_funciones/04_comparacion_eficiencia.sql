@@ -21,7 +21,7 @@ SET NOCOUNT ON;
 DECLARE @inicio DATETIME2(7);
 DECLARE @i INT;
 DECLARE @id_nuevo INT;
-DECLARE @total FLOAT;
+DECLARE @total DECIMAL(12,2);
 DECLARE @id_venta_prueba INT;
 
 DECLARE @resultados TABLE
@@ -39,7 +39,7 @@ DECLARE @resultados TABLE
 IF OBJECT_ID(N'dbo.sp_InsertarCliente', N'P') IS NULL
 BEGIN
     THROW 51001,
-        'No existe dbo.sp_InsertarCliente. Ejecute primero el script de Joa.',
+        'No existe dbo.sp_InsertarCliente. Ejecute primero 01_procedimientos_crud.sql.',
         1;
 END;
 

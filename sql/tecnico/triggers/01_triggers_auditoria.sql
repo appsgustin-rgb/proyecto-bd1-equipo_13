@@ -42,8 +42,8 @@ BEGIN
         operacion VARCHAR(10) NOT NULL,
         id_producto INT NOT NULL,
         nombre_producto VARCHAR(50) NOT NULL,
-        precio_anterior FLOAT NULL,
-        precio_nuevo FLOAT NULL,
+        precio_anterior DECIMAL(10,2) NULL,
+        precio_nuevo DECIMAL(10,2) NULL,
         stock_anterior INT NULL,
         stock_nuevo INT NULL,
         PRIMARY KEY (id_auditoria)

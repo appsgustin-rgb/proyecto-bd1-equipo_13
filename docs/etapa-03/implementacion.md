@@ -12,7 +12,7 @@ En esta etapa se implementó en SQL Server el modelo relacional definido en la e
 1. `sql/ddl/TABLAS.sql`
 2. `sql/dml/INSERT.sql`
 
-El script DDL verifica si la base `base_distribuidora` existe y la crea solo si no existe. Las tablas se crean en orden de dependencia: primero las que no tienen claves foráneas (`Cliente`, `Metodo_Pago`, `Categoria` y `Repartidor`) y después las que las referencian (`Venta`, `Producto`, `Detalle_Venta`, `Entrega` y `Telefono_Cliente`).
+El script DDL verifica si la base `base_distribuidora` existe y la crea solo si no existe. Luego elimina las tablas si ya existían (`DROP TABLE IF EXISTS`, en orden inverso a las dependencias), para que el script pueda volver a ejecutarse desde cero. Las tablas se crean en orden de dependencia: primero las que no tienen claves foráneas (`Cliente`, `Metodo_Pago`, `Categoria` y `Repartidor`) y después las que las referencian (`Venta`, `Producto`, `Detalle_Venta`, `Entrega` y `Telefono_Cliente`).
 
 El script DML respeta el mismo orden, ya que no es posible insertar una fila que haga referencia a un registro que todavía no existe.
 
